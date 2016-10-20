@@ -6,16 +6,26 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="service.YelpAPI" %>
 <html>
     <head>
       <title>Geolocation Experiment</title>
     </head>
     <body>
-      <p>Click the button to get your coordinates.</p>
 
-      <button onclick="getLocation()">Try It</button>
+      <h2>Simple Webapp</h2>
 
-      <p id="demo"></p>
+      <ul>
+        <li><a href="search">Search</a></li>
+      </ul>
+
+      <%--<h3 class="message"><%=YelpAPI.getMessage()%></h3>--%>
+
+      <%--<p>Click the button to get your coordinates.</p>--%>
+
+      <%--<button onclick="getLocation()">Try It</button>--%>
+
+      <%--<p id="demo"></p>--%>
 
       <script>
         var x = document.getElementById("demo");
