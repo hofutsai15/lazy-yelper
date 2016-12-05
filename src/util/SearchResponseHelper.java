@@ -9,9 +9,6 @@ import org.json.simple.parser.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by henry on 12/3/16.
- */
 public class SearchResponseHelper {
 
     public static List<Restaurant> getRestaurants(String searchResponseJSON) {
@@ -33,7 +30,7 @@ public class SearchResponseHelper {
         JSONArray businesses = (JSONArray) response.get("businesses");
         for (int i = 0; i < businesses.size(); i++) {
             JSONObject object = (JSONObject) businesses.get(i);
-            Long id = Long.parseLong(object.get("id").toString());
+            String id = object.get("id").toString();
             String name = object.get("name").toString() ;
 
             Restaurant restaurant = new Restaurant();
