@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title></title>
@@ -13,25 +14,30 @@
 <body>
     <h2>Hello Search!</h2>
 
-    <button onclick="getLocation()">Try It</button>
+    <c:forEach items="${restaurantList}" var="restaurant" >
+        ${restaurant.id}
+        ${restaurant.name}
+    </c:forEach>
 
-    <p id="location"></p>
+    <%--<button onclick="getLocation()">Try It</button>--%>
 
-    <script>
-      var x = document.getElementById("location");
+    <%--<p id="location"></p>--%>
 
-      function getLocation() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(showPosition);
-        } else {
-          x.innerHTML = "Geolocation is not supported by this browser.";
-        }
-      }
+    <%--<script>--%>
+      <%--var x = document.getElementById("location");--%>
 
-      function showPosition(position) {
-        x.innerHTML = "Latitude: " + position.coords.latitude +
-                "<br>Longitude: " + position.coords.longitude;
-      }
-    </script>
+      <%--function getLocation() {--%>
+        <%--if (navigator.geolocation) {--%>
+          <%--navigator.geolocation.getCurrentPosition(showPosition);--%>
+        <%--} else {--%>
+          <%--x.innerHTML = "Geolocation is not supported by this browser.";--%>
+        <%--}--%>
+      <%--}--%>
+
+      <%--function showPosition(position) {--%>
+        <%--x.innerHTML = "Latitude: " + position.coords.latitude +--%>
+                <%--"<br>Longitude: " + position.coords.longitude;--%>
+      <%--}--%>
+    <%--</script>--%>
 </body>
 </html>
