@@ -8,20 +8,36 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="service.YelpAPI" %>
 <html>
-    <head>
-      <title>Geolocation Experiment</title>
-    </head>
-    <body>
+<head>
+    <title>Geolocation Experiment</title>
+</head>
+<body>
 
-      <h2>Simple Webapp</h2>
+<h2>Lazy Yelper</h2>
 
-      <ul>
-        <li><a href="search">Search</a></li>
-      </ul>
+<button type="button" onclick="getLocation()"><a href="search">Lazy Search</a></button>
 
-      <%--<h3 class="message"><%=YelpAPI.getMessage()%></h3>--%>
+<p id="message"></p>
+<input type="hidden" id="latitude" name="latitude" />
+<input type="hidden" id="longitude" name="longitude" />
 
-      <%--<p>Click the button to get your coordinates.</p>--%>
+<script>
+    var msg = document.getElementById("message");
+    var latitude = document.getElementById("latitude");
+    var longitude = document.getElementById("longitude");
 
-    </body>
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(insertPosition);
+        } else {
+            msg.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function insertPosition(position) {
+        latitude.value = position.coords.latitude;
+        longitude.value = position.coords.longitude;
+    }
+</script>
+</body>
 </html>
